@@ -6,13 +6,13 @@ var app = express();
 var PORT = process.env.PORT || 8080;
 
 app.use(bodyParser.json());
-app.use(bodyParser.urencoded({ extended: true}));
+app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({type: "application/vnd.api+json"}));
 
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+require("./routes/apiRoutes.js")(app);
+require("./routes/htmlRoutes.js")(app);
 
 app.listen(PORT, function(){
 	console.log("App listening on Port: " + PORT);
-})
+});
