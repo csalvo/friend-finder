@@ -15,4 +15,11 @@ module.exports = function(app) {
 }
 
 
-// 
+// var currentBfName;
+// var currentBfScore;
+// var currentBfPic;
+// var friendScore;
+
+// for each friend, loop through each scores array, 
+//  subtracting each number from body.scores then add it to friend scores
+//  if friendScore is greater than currentBfScore set currentBf to friend[i].name and currentBfPic  
