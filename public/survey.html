@@ -4,34 +4,36 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <style>
+    input[type=range]::-webkit-slider-thumb {
+        background-color: #2e7d32;
+    }
 
-  input[type=range]::-webkit-slider-thumb {
-    background-color: #2e7d32;
-  }
-  input[type=range]::-moz-range-thumb {
-    background-color: #2e7d32;
-  }
-  input[type=range]::-ms-thumb {
-    background-color: #2e7d32;
-  }
+    input[type=range]::-moz-range-thumb {
+        background-color: #2e7d32;
+    }
 
-  /***** These are to edit the thumb and the text inside the thumb *****/
-  input[type=range] + .thumb {
-    background-color: #c1c1c1;
-  }
-  input[type=range] + .thumb.active .value {
-    color: #2e7d32;
-  }
-</style>
+    input[type=range]::-ms-thumb {
+        background-color: #2e7d32;
+    }
+    /***** These are to edit the thumb and the text inside the thumb *****/
+
+    input[type=range]+.thumb {
+        background-color: #c1c1c1;
+    }
+
+    input[type=range]+.thumb.active .value {
+        color: #2e7d32;
+    }
+    </style>
     <title>Survey</title>
 </head>
 
-<body  style="background-color: #a5d6a7">
+<body style="background-color: #a5d6a7">
     <nav class="teal lighten-2">
         <div class="nav-wrapper">
             <a href="#" class="brand-logo">FriendFinder</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-            		<li><a href="/">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="/api/friends">API Friend List</a></li>
                 <li><a href="https://github.com/csalvo/friend-finder">GitHub Repo</a></li>
             </ul>
@@ -44,58 +46,80 @@
         <form class="col s12">
             <div class="row">
                 <div class="col s3"></div>
-                <div class="input-field col s6" style="background-color: #ededed">
-                <form>
-                    <p>1. How much do you like cheeseburgers?</p>
-                    <p class="range-field">
-                        <input type="range" id="q1" min="1" max="5" />
-                    </p>
-                    <p>2. You would rather stay in and watch a movie rather than go out.</p>
-                    <p class="range-field">
-                        <input type="range" id="q2" min="1" max="5" />
-                    </p>
-                    <p>3. Doggos are cool and cats are weird.</p>
-                    <p class="range-field">
-                        <input type="range" id="q3" min="1" max="5" />
-                    </p>
-                    <p>4. But for real though, how great are cheeseburgers?</p>
-                    <p class="range-field">
-                        <input type="range" id="q4" min="1" max="5" />
-                    </p>
-                    <p>5. If you had to choose between a wombat and a red panda, you'd choose a wombat.</p>
-                    <p class="range-field">
-                        <input type="range" id="q5" min="1" max="5" />
-                    </p>
-                    <p>6. If you had to choose a favorite dinosaur, it'd be a stegosaurus.</p>
-                    <p class="range-field">
-                        <input type="range" id="q6" min="1" max="5" />
-                    </p>
-                    <p>7. How much do you like monkeys?</p>
-                    <p class="range-field">
-                        <input type="range" id="q7" min="1" max="5" />
-                    </p>
-                    <p>8. You like hot weather better than cold weather.</p>
-                    <p class="range-field">
-                        <input type="range" id="q8" min="1" max="5" />
-                    </p>
-                    <p>9. You are a morning person.</p>
-                    <p class="range-field">
-                        <input type="range" id="q9" min="1" max="5" />
-                    </p>
-                    <p>10. How much do you like cats?</p>
-                    <p class="range-field">
-                        <input type="range" id="q10" min="1" max="5" />
-                    </p>
-                    <a class="btn-large" href="/survey" style="background-color: #2e7d32; margin-bottom: 10px">Submit Survey</a>
+                <div class="col s6" style="background-color: #ededed; padding: 20px">
+                    <form>
+                        <div class="input-field">
+                            <input id="name" type="text">
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="input-field">
+                            <input id="photo" type="text">
+                            <label for="photo">Picture</label>
+                        </div>
+                        <p>1. How much do you like cheeseburgers?</p>
+                        <p class="range-field">
+                            <input type="range" id="q1" min="1" max="5" />
+                        </p>
+                        <p>2. You would rather stay in and watch a movie rather than go out.</p>
+                        <p class="range-field">
+                            <input type="range" id="q2" min="1" max="5" />
+                        </p>
+                        <p>3. Doggos are cool and cats are weird.</p>
+                        <p class="range-field">
+                            <input type="range" id="q3" min="1" max="5" />
+                        </p>
+                        <p>4. But for real though, how great are cheeseburgers?</p>
+                        <p class="range-field">
+                            <input type="range" id="q4" min="1" max="5" />
+                        </p>
+                        <p>5. If you had to choose between a wombat and a red panda, you'd choose a wombat.</p>
+                        <p class="range-field">
+                            <input type="range" id="q5" min="1" max="5" />
+                        </p>
+                        <p>6. If you had to choose a favorite dinosaur, it'd be a stegosaurus.</p>
+                        <p class="range-field">
+                            <input type="range" id="q6" min="1" max="5" />
+                        </p>
+                        <p>7. How much do you like monkeys?</p>
+                        <p class="range-field">
+                            <input type="range" id="q7" min="1" max="5" />
+                        </p>
+                        <p>8. You like hot weather better than cold weather.</p>
+                        <p class="range-field">
+                            <input type="range" id="q8" min="1" max="5" />
+                        </p>
+                        <p>9. You are a morning person.</p>
+                        <p class="range-field">
+                            <input type="range" id="q9" min="1" max="5" />
+                        </p>
+                        <p>10. How much do you like cats?</p>
+                        <p class="range-field">
+                            <input type="range" id="q10" min="1" max="5" />
+                        </p>
+                        <a class="btn-large" id="submit" style="background-color: #2e7d32; margin-bottom: 10px">Submit Survey</a>
                 </div>
             </div>
-        </form>
+            </form>
     </div>
 </body>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
 <script type="text/javascript">
+
+
+$("#submit").click(function() {
+	var newUser = {
+    name: $("#name").val(),
+    photo: $("#photo").val(),
+    scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val()]
+}
+    var currentURL = window.location.origin;
+
+ $.post(currentURL + "/api/friends", newUser, function(data) {     
+        console.log(data);
+
+    });
+});
 </script>
 
 </html>
