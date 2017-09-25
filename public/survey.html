@@ -50,11 +50,11 @@
                     <form>
                         <div class="input-field">
                             <input id="name" type="text">
-                            <label for="name">Name</label>
+                            <label for="name">Name (required) </label>
                         </div>
                         <div class="input-field">
                             <input id="photo" type="text">
-                            <label for="photo">Picture</label>
+                            <label for="photo">Picture (required) </label>
                         </div>
                         <p>1. How much do you like cheeseburgers?</p>
                         <p class="range-field">
@@ -103,11 +103,12 @@
             <!-- Modal Structure -->
             <div id="modal1" class="modal">
                 <div class="modal-content">
-                    <h4>Modal Header</h4>
-                    <p>A bunch of text</p>
+                    <h4>Your new friend is...</h4>
+                    <h5 id="friendName"></h5>
+                    <img id="friendPic" src="" style="max-height: 200px; max-width: 300px">
                 </div>
                 <div class="modal-footer">
-                    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+                    <a id="closeModal" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
                 </div>
             </div>
     </div>
@@ -123,11 +124,25 @@ $("#submit").click(function() {
         photo: $("#photo").val(),
         scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val()]
     }
+
     var currentURL = window.location.origin;
 
-    $.post(currentURL + "/api/friends", newUser, function(data) {
-    $("#modal1").modal('open');
-    });
+    if ($("#name").val() !== "" || $("#photo").val() !== "") {
+        $.post(currentURL + "/api/friends", newUser, function(data) {
+            $("#modal1").modal('open');
+            $("#friendName").text(data.name)
+            $("#friendPic").attr("src", data.photo)
+        });
+    } else {
+        alert("Please fill in all required info!");
+    }
+});
+
+$("#closeModal").click(function() {
+    $("#name").val("");
+    $("#photo").val("");
+    $("#q1, #q2, #q3, #q4, #q5, #q6, #q7, #q8, #q9, #q10").val(3);
+
 });
 </script>
 
