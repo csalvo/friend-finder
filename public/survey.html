@@ -100,8 +100,6 @@
                 </div>
             </div>
             </form>
-            <!-- Modal Trigger -->
-            <a class="waves-effect waves-light btn modal-trigger">Modal</a>
             <!-- Modal Structure -->
             <div id="modal1" class="modal">
                 <div class="modal-content">
@@ -118,8 +116,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 <script type="text/javascript">
 $(".modal").modal();
-$(".btn").click(function() {
-    $("#modal1").modal('open');
+$("#submit").click(function() {
 
     var newUser = {
         name: $("#name").val(),
@@ -129,7 +126,7 @@ $(".btn").click(function() {
     var currentURL = window.location.origin;
 
     $.post(currentURL + "/api/friends", newUser, function(data) {
-
+    $("#modal1").modal('open');
     });
 });
 </script>
